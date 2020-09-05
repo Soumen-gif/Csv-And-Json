@@ -1,5 +1,10 @@
 package service;
 
+import com.opencsv.CSVWriter;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import model.MyUser;
 
 import java.io.IOException;
@@ -10,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OpenCSVWriter {
-    private static final String OBJECT_LIST_SAMPLE = "./object-list-sample.csv";
+    private static final String OBJECT_LIST_SAMPLE = "E:\\Csv-And-Json\\src\\test\\resources\\sample.csv";
 
     public static void main(String[] args) throws IOException,
             CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {

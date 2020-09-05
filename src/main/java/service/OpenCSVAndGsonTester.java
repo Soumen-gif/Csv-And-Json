@@ -1,5 +1,8 @@
 package service;
 
+import com.google.gson.Gson;
+import com.opencsv.bean.CsvToBean;
+import com.opencsv.bean.CsvToBeanBuilder;
 import model.CSVUser;
 
 import java.io.*;
@@ -9,8 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class OpenCSVAndGsonTester {
-    private static final String SAMPLE_CSV_FILE_PATH = "E:\\DummyProject\\src\\main\\java\\com\\bridgelabz\\csvproject\\sample.csv";
-    private static final String SAMPLE_JSON_FILE_PATH = "E:\\DummyProject\\src\\main\\java\\com\\bridgelabz\\csvproject\\sample.json";
+    private static final String SAMPLE_CSV_FILE_PATH = "E:\\Csv-And-Json\\src\\test\\resources\\sample.csv";
+    private static final String SAMPLE_JSON_FILE_PATH = "E:\\Csv-And-Json\\src\\test\\resources\\sample.json";
 
     public static void main(String[] args) throws IOException {
         try {
