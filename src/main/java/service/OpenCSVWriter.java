@@ -1,0 +1,32 @@
+package service;
+
+import model.MyUser;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+public class OpenCSVWriter {
+    private static final String OBJECT_LIST_SAMPLE = "./object-list-sample.csv";
+
+    public static void main(String[] args) throws IOException,
+            CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+        try {
+            Writer writer = Files.newBufferedWriter(Paths.get(OBJECT_LIST_SAMPLE));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Writer writer = null;
+            StatefulBeanToCsv<MyUser> beanToCsv = new StatefulBeanToCsvBuilder(writer)
+                    .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
+                    .build();
+            List<MyUser> myUsers = new ArrayList<>();
+            myUsers.add(new MyUser("Sundar pichai", "sundar.pichai@gmail.com", "+1-1111111111", "Usa"));
+            myUsers.add(new MyUser("satya nadella", "satya.nadella@outlook.com", "+1-2221111111", "India"));
+
+            beanToCsv.write(myUsers);
+        }
+    }
+}
